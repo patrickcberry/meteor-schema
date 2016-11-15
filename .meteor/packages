@@ -19,11 +19,27 @@ ecmascript@0.5.9              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.2.1            # Server-side component of the `meteor shell` command
 
 autopublish@1.0.7             # Publish all data to the clients (for prototyping)
-insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
+# insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
 
+# #################################
+# Styling and misc packages
+# #################################
+
+npm-bcrypt@0.8.7
+accounts-base
+accounts-password
+stylus
+ian:accounts-ui-bootstrap-3
+
+iron:router
+mizzao:bootstrap-3
+# twbs:bootstrap
+meteortoys:allthings
 
 # #################################
 # Schema packages
 # #################################
 
 aldeed:simple-schema
+aldeed:collection2
+aldeed:autoform
