@@ -1,19 +1,20 @@
-Template.posts.helpers({
+Template.methodPosts.helpers({
 	posts: function(){
-		return Posts.find();
+		return MethodPosts.find();
 	}
 });
+
 
 var postHooks = {
 	before: {
 
-		// The userId field in the posts record is used to store the 
-		// author of the post. UserId in the schema is given a default 
-		// value so that it dosn't fail validation on the form. In this
-		// method UserId is set to undefined if no user is logged in
+		method: function(doc){
 
+			// The userId field in the posts record is used to store the 
+			// author of the post. UserId in the schema is given a default 
+			// value so that it dosn't fail validation on the form. In this
+			// method UserId is set to undefined if no user is logged in
 
-		insert: function(doc){
 			if ( Meteor.userId() ){
 				doc.userId = Meteor.userId();
 			} else {
@@ -27,7 +28,6 @@ var postHooks = {
 	// form are a comma seperated string, while tags are stored as an array of strings
 	// in the database
 
-
 	docToForm: function(doc){
 		if (_.isArray(doc.tags)){
 			doc.tags = doc.tags.join(", ");
@@ -39,7 +39,14 @@ var postHooks = {
 			doc.tags = doc.tags.split(",");
 		}
 		return doc;
+	},
+
+	// Not used
+
+	onSuccess: function(formType, result) {
+	},
+	onError: function(formType, error) {
 	}
 };
 
-AutoForm.addHooks('insertPostForm', postHooks);
+AutoForm.addHooks('insertMethodPostForm', postHooks);

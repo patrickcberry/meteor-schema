@@ -1,21 +1,28 @@
+<!-- Create Posts directly into the collection -->
+
 <template name="posts">
 	<h1>Add Post</h1>
-		<!--
+		<!--		
 		{{> quickForm collection="Posts" id="insertPostForm" type="insert"}}
 		-->
 
 		{{#autoForm collection="Posts" id="insertPostForm" type="insert"}}
     		<fieldset>
 		      {{> afQuickField name='title'}}
-		      {{> afQuickField name='content' rows=6}}
+		      {{> afQuickField name='content' rows=3}}
 		      {{> afQuickField name='category'}}
+		      {{> afQuickField name='tags' type='text'}}
 		    </fieldset>
     		<button type="submit" class="btn btn-primary">Insert</button>
   		{{/autoForm}}
 
+	<br>
 	<ul>
 		{{#each posts}}
 			<li><a href="{{pathFor 'post.show'}}">{{title}}</a> - {{content}}</li>
 		{{/each}}
 	</ul>
+
+	<hr>
+	<small><i>posts.html</i></small>	
 </template>

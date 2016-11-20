@@ -1,0 +1,20 @@
+<!-- Update form user method -->
+
+<template name="mpost">
+	<h1>Edit Post (using methods)</h1>
+
+	{{#autoForm meteormethod="methodPostsUpdate" schema=Schemas.MethodPosts collection="MethodPosts" id="updateMethodPostForm" type="method-update" doc=this}}
+		<fieldset>
+	      {{> afQuickField name='title'}}
+	      {{> afQuickField name='content' rows=6}}
+	      {{> afQuickField name='category'}}
+	      {{> afQuickField name='tags' type='text'}}
+	    </fieldset>
+		<button type="submit" class="btn btn-primary">Update</button>
+		{{/autoForm}}
+
+	<a href="/methods/" class="btn">Back</a>
+
+	<hr>
+	<small><i>mpost.html</i></small>
+</template>
